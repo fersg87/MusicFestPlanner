@@ -1,6 +1,4 @@
-﻿Get-SpotifyArtistTopTracks -accessToken $token -artistList $artists
-# $topTracks
-function Get-SpotifyArtistTopTracks {
+﻿function Get-SpotifyArtistTopTracks {
     param (
         [Parameter(Mandatory)]
         [string]$accessToken,
@@ -230,6 +228,13 @@ function Add-TracksToSpotifyPlaylist {
     }
 }
 
+#=====================================
+# Instructions
+# 
+# Run every section in order.
+# Section 3,4,5 need to be run every time your user access token expires
+# You can keep sections 3,4,5 commented out to avoid hitting auth errors after getting your tokens
+#=====================================
 
 #=====================================
 # Step 1: Your spotify credentials
