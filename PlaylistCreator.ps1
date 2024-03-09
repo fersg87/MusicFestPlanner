@@ -1,4 +1,4 @@
-﻿function Get-SpotifyArtistTopTracks {
+function Get-SpotifyArtistTopTracks {
     param (
         [Parameter(Mandatory)]
         [string]$accessToken,
@@ -26,8 +26,10 @@
             # Get the top tracks for the artist
             $topTracksResponse = Invoke-RestMethod -Uri "https://api.spotify.com/v1/artists/$artistId/top-tracks?market=US" -Method Get -Headers $headers
             $topTrackIds = $topTracksResponse.tracks[0..($topN-1)].uri
-            $trackUris += $topTrackIds
             $artistTopTracks[$artistName] = $topTrackIds
+            if ($topTrackIds) {
+                $trackUris += $topTrackIds
+            }
         }
     }
 
